@@ -78,7 +78,7 @@ require 'rules'
 																																User Interface
 --]]---------------------------------------------------------------------------
 
-local ui				= require 'ui'
+local ui = require 'ui'
 
 awful.screen.connect_for_each_screen(function (scrn)
 				ui.set_wallpaper(scrn)

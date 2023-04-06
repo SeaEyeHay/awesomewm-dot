@@ -79,16 +79,21 @@ globalkeys = gears.table.join(
 
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.bydirection('down')    end,
+    awful.key({ modkey, "Shift"					}, "j", function () awful.client.swap.bydirection('down')    end,
               {description = "swap with the client under", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.bydirection('up')    end,
+    awful.key({ modkey, "Shift"					}, "k", function () awful.client.swap.bydirection('up')    end,
               {description = "swap with the client above", group = "client"}),
-    awful.key({ modkey, "Shift" }, "h", function () awful.client.swap.bydirection('left') end,
+    awful.key({ modkey, "Shift"					}, "h", function () awful.client.swap.bydirection('left') end,
               {description = "swap with the client to the left", group = "client"}),
-    awful.key({ modkey, "Shift" }, "l", function () awful.client.swap.bydirection('right') end,
+    awful.key({ modkey, "Shift"					}, "l", function () awful.client.swap.bydirection('right') end,
               {description = "swap with the client to the right", group = "client"}),
 
-				awful.key({ modkey          }, 'a',
+				-- Size manipulation
+				awful.key({ modkey, 'Control'			}, 'h',
+												  function() awful.screen.focused().selected_tag.master_width_factor = 0.458203125 end,
+														{description="Shrink the master client width", group='layout'}),
+
+				awful.key({ modkey														}, 'a',
 								function()
 												local tag = awful.screen.focused().selected_tag
 
@@ -100,7 +105,7 @@ globalkeys = gears.table.join(
 								end,
 								{ description="Toggle the number of master windows", group='client' }),
 
-    awful.key({ modkey,           }, "Tab",
+    awful.key({ modkey,													}, "Tab",
         function ()
             awful.client.focus.history.previous()
             if client.focus then
@@ -129,7 +134,6 @@ globalkeys = gears.table.join(
 												if restored then
 																restored:emit_signal("request::activate", "key.unminimize", {raise = true})
 																restored:swap(current)
-																current.minimized = true
 												end
 
 												current.minimized = true

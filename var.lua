@@ -4,8 +4,13 @@ local lain  = require 'lain'
 
 local beautiful = require("beautiful")
 
+
+ConfDir = gears.filesystem.get_configuration_dir()
+
+
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init( gears.filesystem.get_configuration_dir() .. "/theme.lua" )
+beautiful.init( ConfDir .. "/theme.lua" )
+
 
 -- This is used later as the default terminal and editor to run.
 terminal = "kitty"

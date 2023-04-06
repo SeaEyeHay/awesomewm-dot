@@ -13,6 +13,7 @@ local fsWidget						= require 'awesome-wm-widgets.fs-widget.fs-widget'
 -- My widget
 local wifi						= require 'widget.wirelessStatus'
 local kblayout		= require 'widget.keyboard'
+local factoral		= require 'widget.factoral'
 
 
 -- Theme Handler
@@ -156,7 +157,7 @@ function _M.make_left()
     				    os.execute(string.format("pactl set-sink-volume %s 100%%", volume.device))
     				    volume.update()
     				end),
-    				awful.button({}, 3, function() -- right click
+    awful.button({}, 3, function() -- right click
     				    os.execute(string.format("pactl set-sink-mute %s toggle", volume.device))
     				    volume.update()
     				end),
@@ -220,9 +221,24 @@ function _M.make_left()
     				end,
 				}
 
+				-----------------------------------------------------------------
+
+				local mFactorIndic, update = factoral.Widget:make('width', function()
+								local t =  awful.screen.focused().selected_tag
+								return t.master_width_factor, t.layout
+				end)
+
+				awful.tag.attached_connect_signal(nil, 'property::master_width_factor', update)
+				awful.tag.attached_connect_signal(nil, 'property::layout', update)
+				awful.tag.attached_connect_signal(nil, 'property::selected', function(t)
+								if t.selected then update() end
+				end)
+
+				-----------------------------------------------------------------
+
 				QuickEsc:insert(function() kblayout.force_update() end)
 
-				return pod:make { items={ layoutVolume, wifiStatus.widget, kblayout.widget } }
+				return pod:make { items={ layoutVolume, wifiStatus.widget, kblayout.widget, mFactorIndic } }
 end
 
 function _M.make_test()

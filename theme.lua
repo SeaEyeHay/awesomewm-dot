@@ -91,15 +91,18 @@ local theme = {
 																												Base Colorscheme
 --]]---------------------------------------------------------------------
 
-theme.bg_normal															= bg0_h
-theme.bg_focus																= bg1
-theme.bg_minimize													= bg3
-theme.bg_urgent															= red
+theme.bg_normal																	= bg0_h
+theme.bg_focus																		= bg1
+theme.bg_minimize															= bg3
+theme.bg_urgent																	= red
 
-theme.fg_normal															= fg1
-theme.fg_focus																= fg0
-theme.fg_minimize													= fg3
-theme.fg_urgent															= bg0
+theme.fg_normal																	= fg1
+theme.fg_focus																		= fg0
+theme.fg_minimize															= fg3
+theme.fg_urgent																	= bg0
+
+theme.accept																				= green
+theme.refuse																				= redAlt
 
 -------------------------------------------------------------------------
 
@@ -252,6 +255,15 @@ theme.wifilow							= "/usr/share/icons/Papirus-Dark/symbolic/status/network-wir
 theme.wifimed							= "/usr/share/icons/Papirus-Dark/symbolic/status/network-wireless-signal-ok-symbolic.svg"
 theme.wifihigh						= "/usr/share/icons/Papirus-Dark/symbolic/status/network-wireless-signal-good-symbolic.svg"
 theme.wififull						= "/usr/share/icons/Papirus-Dark/symbolic/status/network-wireless-signal-excellent-symbolic.svg"
+
+
+theme.factorIcon = {
+				width											= "/usr/share/icons/Papirus-Dark/24x24/actions/osd-sbs-sright.svg",
+				height										= TODO,
+				add													= "/usr/share/icons/Papirus-Dark/24x24/actions/add.svg",
+				remove										= "/usr/share/icons/Papirus-Dark/24x24/actions/edit-delete-remove.svg",
+				close											= "/usr/share/icons/Papirus-Dark/24x24/actions/dialog-close.svg" 
+}
 
 -------------------------------------------------------------------------
 

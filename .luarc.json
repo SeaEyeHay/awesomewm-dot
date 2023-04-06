@@ -32,8 +32,9 @@
         "maxPreload": 5000,
         "preloadFileSize": 1000,
 	"library": [
-	     "/usr/share/awesome/lib",
-	     "/usr/share/lua/5.3/lgi"
+		"${3rd}/luassert/library",
+	     	"/usr/share/awesome/lib",
+	     	"/usr/share/lua/5.3/lgi"
 	]
     },
     "typeFormat": {
