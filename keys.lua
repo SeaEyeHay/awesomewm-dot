@@ -1,5 +1,6 @@
 local awful = require 'awful'
 local gears	= require 'gears'
+local factoral = require 'widget.factoral'
 
 local logout = require 'awesome-wm-widgets.logout-popup-widget.logout-popup'
 
@@ -90,8 +91,28 @@ globalkeys = gears.table.join(
 
 				-- Size manipulation
 				awful.key({ modkey, 'Control'			}, 'h',
-												  function() awful.screen.focused().selected_tag.master_width_factor = 0.458203125 end,
-														{description="Shrink the master client width", group='layout'}),
+												function()
+																local tag							= awful.screen.focused().selected_tag
+																local factors			= factoral[tag.layout.name]
+
+																local shrunk				= factors:prev(tag.master_width_factor)
+																if shrunk == nil then shrunk, _ = factors:find_closest(tag.master_width_factor) end
+
+																tag.master_width_factor = shrunk
+												end,
+												{description="Shrink the master client width", group='layout'}),
+				awful.key({ modkey, 'Control'			}, 'l',
+												function()
+																local tag							= awful.screen.focused().selected_tag
+																local factors			= factoral[tag.layout.name]
+
+																local grown					= factors:next(tag.master_width_factor)
+																if grown == nil then _, grown = factors:find_closest(tag.master_width_factor) end
+
+																tag.master_width_factor = grown
+												end,
+												{description="Grow the master client width", group='layout'}),
+
 
 				awful.key({ modkey														}, 'a',
 								function()

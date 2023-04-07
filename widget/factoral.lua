@@ -84,20 +84,33 @@ end
 
 function Discrete:next(factor)
 				local i = self.index[factor]
+				if i == nil then return nil end
+
 				return self.ls[i + 1] or factor
 end
 
 function Discrete:prev(factor)
 				local i = self.index[factor]
+				if i == nil then return nil end
+
 				return self.ls[i - 1] or factor
 end
 
 function Discrete:find_closest(factor)
+				-- in case it is empty
+				if next(self.ls) == nil then return factor, factor end
+
+				-- in case it is less than the first
+				if self.ls[1] > factor then return factor, self.ls[1] end
+
 				for i, v in ipairs(self.ls) do
 								if v > factor then
 												return self.ls[i - 1], v
 								end
 				end
+
+				-- in case it is greater than the last
+				return self.ls[#self.ls], factor
 end
 
 function Discrete:iter()
@@ -154,7 +167,7 @@ _M.Widget = {
 				}
 }
 
-function _M.Widget:make(img, get)
+function _M.Widget:make(dir, get)
 				local newWidget = wibox.widget(self)
 
 				local factor				= newWidget:get_children_by_id('factor')[1]
@@ -179,7 +192,7 @@ function _M.Widget:make(img, get)
 				end
 
 				-- vertical or horizontal factor's icon
-				icon.image = theme.factorIcon[img]
+				icon.image = theme.factorIcon[dir]
 
 				-- Display the current factor
 				update()
