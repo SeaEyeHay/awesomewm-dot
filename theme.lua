@@ -68,7 +68,7 @@ local grayAlt							= '#928374'
 
 --]]---------------------------------------------------------------------
 local theme = {
-				font = "sans 10",
+				font = "noto sans 10.5",
 
 				tasklist_bg_normal						= bg2,
 				tasklist_fg_normal						= fg0,
@@ -111,7 +111,7 @@ theme.refuse																				= redAlt
 																												Load the Wallpaper
 --]]---------------------------------------------------------------------
 
-theme.wallpaper = home .. "/Pictures/Wallpaper/void.png"
+theme.wallpaper = home .. "/Pictures/Wallpaper/galaxy.jpg"
 
 -------------------------------------------------------------------------
 
@@ -234,8 +234,8 @@ theme.layout_centerworkh = theme.lain_icons .. "centerworkh.png" -- centerwork.h
 
 theme.pods_sep						= "/usr/share/icons/Papirus-Dark/symbolic/apps/separator-symbolic.svg"
 
-theme.pods_calendar = "/usr/share/icons/Papirus-Dark/symbolic/mimetypes/x-office-calendar-symbolic.svg"
-theme.pods_clock				= "/usr/share/icons/Papirus-Dark/24x24/actions/clock.svg"
+theme.pods_calendar = "/usr/share/icons/Papirus/22x22/mimetypes/x-office-calendar.svg"
+theme.pods_clock				= "/usr/share/icons/Papirus/16x16/apps/preferences-system-time.svg"
 theme.pods_volume			= "/usr/share/icons/Papirus-Dark/24x24/actions/audio-volume-high.svg"
 theme.pods_keyboard	= "/usr/share/icons/Papirus-Dark/16x16/devices/input-keyboard.svg"
 
@@ -258,11 +258,11 @@ theme.wififull						= "/usr/share/icons/Papirus-Dark/symbolic/status/network-wir
 
 
 theme.factorIcon = {
-				width											= "/usr/share/icons/Papirus-Dark/24x24/actions/osd-sbs-sright.svg",
+				width											= "/usr/share/icons/Papirus-Dark/24x24/actions/kdenlive-object-width.svg",
 				height										= TODO,
 				add													= "/usr/share/icons/Papirus-Dark/24x24/actions/add.svg",
 				remove										= "/usr/share/icons/Papirus-Dark/24x24/actions/edit-delete-remove.svg",
-				close											= "/usr/share/icons/Papirus-Dark/24x24/actions/dialog-close.svg" 
+				close											= "/usr/share/icons/Papirus-Dark/24x24/actions/dialog-close.svg"
 }
 
 -------------------------------------------------------------------------

@@ -99,8 +99,13 @@ function _M.make_right()
 								layout		= wibox.layout.fixed.horizontal,
 								spacing = 3,
 								{
-												widget		= wibox.widget.imagebox,
-												image			= theme.pods_clock,
+												widget		= wibox.container.margin,
+												top					= 3,
+												bottom		= 3,
+												{
+																widget		= wibox.widget.imagebox,
+																image			= theme.pods_clock,
+												}
 								},
 								{
 												widget		= wibox.widget.textclock,

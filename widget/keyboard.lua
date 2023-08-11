@@ -19,7 +19,7 @@ local lockKeys = { num=1, caps=2 }
 local HOME = os.getenv 'HOME'
 
 -- User Configuration for modifier keys
-local modmap				= HOME .. "/.xmodmaprc"
+local modmap				= HOME .. "/.Xmodmap"
 
 -- Available keyboard layout
 local kbLayouts = {
